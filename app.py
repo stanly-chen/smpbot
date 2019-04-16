@@ -9,6 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+import requests
 
 app = Flask(__name__)
 
@@ -38,7 +39,6 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    print("Handle: reply_token: " + event.reply_token + ", message: " + event.message.text)
 
     content = "{}: {}".format(event.source.user_id, event.message.text)
 
@@ -51,12 +51,14 @@ def handle_message(event):
             )
     elif text.lower() == '123':
         content = '321'
+        param = {'temp': content, 'wet': '1000'}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
             )
 
-            
+
 import os
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=os.environ['PORT'])
