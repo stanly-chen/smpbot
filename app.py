@@ -1,4 +1,3 @@
-# encoding: utf-8
 from flask import Flask, request, abort
 
 from linebot import (
@@ -40,40 +39,24 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print("Handle: reply_token: " + event.reply_token + ", message: " + event.message.text)
+
     content = "{}: {}".format(event.source.user_id, event.message.text)
 
-    text=event.message.text
-        #userId = event['source']['userId']
-        if(text.lower()=='me'):
-            content = str(event.source.user_id)
-
-            line_bot_api_8.reply_message(
-                event.reply_token,
-                TextSendMessage(text=content)
+    text = event.message.text
+    if text.lower() == 'me':
+        content = str(event.source.user_id)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
             )
-        elif(text.lower() == 'profile'):
-            profile = line_bot_api_8.get_profile(event.source.user_id)
-            my_status_message = profile.status_message
-            if not my_status_message:
-                my_status_message = '-'
-            line_bot_api_8.reply_message(
-                event.reply_token, [
-                    TextSendMessage(
-                        text='Display name: ' + profile.display_name
-                    ),
-                    TextSendMessage(
-                        text='picture url: ' + profile.picture_url
-                    ),
-                    TextSendMessage(
-                        text='status_message: ' + my_status_message
-                    ),
-                ]
+    elif text.lower() == '123':
+        content = '321'
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
             )
 
-    #line_bot_api.reply_message(
-        #event.reply_token,
-        #TextSendMessage(text=content))
-
+            
 import os
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=os.environ['PORT'])
