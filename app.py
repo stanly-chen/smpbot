@@ -11,6 +11,8 @@ from linebot.models import (
 )
 import requests
 
+import os
+
 app = Flask(__name__)
 
 
@@ -49,16 +51,15 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
-    elif text.lower() == '123':
-        content = '321'
-        param = {'temp': content, 'wet': '1000'}
+    elif text.lower() == 'open':
+        content = '已為您啟動'
+        param = {'temp': '1', 'wet': '1000'}
         requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
             )
 
-
-import os
+     
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',port=os.environ['PORT'])
+    app.run(host='0.0.0.0', port=os.environ['PORT'])
