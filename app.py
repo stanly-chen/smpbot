@@ -61,7 +61,7 @@ def handle_message(event):
             )
     elif "煮水" in text:
         content = '已為您將水煮至你要的溫度'
-        param = {'temp': '0', 'water': 'Y', 'wm': '0'}
+        param = {'temp': '0', 'water': '1Y1', 'wm': '0'}
         requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
         line_bot_api.reply_message(
             event.reply_token,
