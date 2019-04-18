@@ -76,7 +76,7 @@ def handle_message(event):
             TextSendMessage(text=content)
             )
     elif "新聞" in text:
-        content = '已將您的頻道切換至卡通'
+        content = '已將您的頻道切換至新聞'
         param = {'mychannel': 'T'}
         requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
         line_bot_api.reply_message(
