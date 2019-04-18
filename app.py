@@ -59,7 +59,31 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
+    elif "煮水" in text:
+        content = '已為您將水煮至你要的溫度'
+        param = {'temp': '0', 'water': 'Y', 'wm': '0'}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
+    elif "卡通" in text:
+        content = '已將您的頻道切換至卡通'
+        param = {'mychannel': 'C'}
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
+    elif "新聞" in text:
+        content = '已將您的頻道切換至卡通'
+        param = {'mychannel': 'T'}
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
 
-     
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=os.environ['PORT'])
