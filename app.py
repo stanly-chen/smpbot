@@ -83,6 +83,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
+    elif "電視" in text:
+        content = '已為您開啟電燈'
+        param = {'temp': '0', 'tv': '1Y1', 'wm': '0'}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
     elif "卡通" in text:
         content = '已將您的頻道切換至卡通'
         param = {'mychannel': 'C'}
