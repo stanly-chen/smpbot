@@ -84,7 +84,7 @@ def handle_message(event):
             TextSendMessage(text=content)
             )
     elif "電視" in text:
-        content = '已為您開啟電燈'
+        content = '已發送電視遙控器訊號'
         param = {'temp': '0', 'tv': '1Y1', 'wm': '0'}
         requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
         line_bot_api.reply_message(
