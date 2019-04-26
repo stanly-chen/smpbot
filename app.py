@@ -91,39 +91,23 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
-    elif "看節目" in text:
-        content = '已將您的頻道切換至電視'
-        param = {'mychannel': 'T'}
-        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content)
-            )
-    elif "看兔子" in text:
-        content = '已將您的頻道切換至Rabbit的監視器'
+    elif "卡通" in text:
+        content = '已將您的頻道切換至卡通'
         param = {'mychannel': 'C'}
         requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
             )
-    elif "看房間" in text:
-        content = '已將您的頻道切換至房間的監視器'
-        param = {'mychannel': 'R'}
-        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content)
-            )
-    elif "看全部" in text:
-        content = '已將您的頻道切換至卡通'
-        param = {'mychannel': 'A'}
+    elif "新聞" in text:
+        content = '已將您的頻道切換至新聞'
+        param = {'mychannel': 'T'}
         requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
             )
 
-    if __name__ == "__main__":
-        app.run(host='0.0.0.0', port=os.environ['PORT'])
-       
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=os.environ['PORT'])
