@@ -109,7 +109,7 @@ def handle_message(event):
             )
     elif "兔子" in text:
         content = '已將您的頻道切換至兔子的監視器'
-        param = {'mychannel': 'W'}
+        param = {'mychannel': 'C'}
         requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
