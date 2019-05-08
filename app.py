@@ -47,7 +47,7 @@ def handle_message(event):
 
     text = event.message.text
     if text.lower() == 'me':
-        content = str(event.source.user_id) + str(profile.display_name)
+        content = str(event.source.user_id) + str(profile.display_name) + str(profile.status_message)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
