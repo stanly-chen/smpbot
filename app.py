@@ -43,10 +43,11 @@ def callback():
 def handle_message(event):
 
     content = "{}: {}".format(event.source.user_id, event.message.text)
+    profile = line_bot_api.get_profile(event.source.user_id)
 
     text = event.message.text
     if text.lower() == 'me':
-        content = str(event.source.user_id)
+        content = str(event.source.user_id) + str(profile.display_name)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
