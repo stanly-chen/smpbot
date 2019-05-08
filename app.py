@@ -44,10 +44,20 @@ def handle_message(event):
 
     content = "{}: {}".format(event.source.user_id, event.message.text)
     profile = line_bot_api.get_profile(event.source.user_id)
-
     text = event.message.text
+    userName = str(profile.display_name)
+    userStatus = str(profile.status_message)
+
     if text.lower() == 'me':
-        content = str(event.source.user_id) + str(profile.display_name) + str(profile.status_message)
+        content = str(event.source.user_id) + '_' + userName + '_' + userStatus
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
+    elif text.isdigit():
+        content = '正為您轉台，請靜候10秒'
+        param = {'tv': '1Y1', 'tvNum': text}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
