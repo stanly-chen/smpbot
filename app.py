@@ -55,13 +55,20 @@ def handle_message(event):
             TextSendMessage(text=content)
             )
     elif text.isdigit():
-        content = '正為您轉台，請靜候10秒'
-        param = {'tv': '1Y1', 'tvNum': text}
-        requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=content)
-            )
+        if len(text) < 3:
+            content = '正為您轉台，請靜候10秒'
+            param = {'tv': '1Y1', 'tvNum': text}
+            requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content)
+                )
+        else:
+            content = '請輸入最高兩位的數字'
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text=content)
+                )
     elif text.lower() == 'open':
         content = '已為您啟動'
         param = {'temp': '1', 'wet': '1000'}
