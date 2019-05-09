@@ -54,6 +54,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
+    elif "開機" in text:
+        content = '正為您開機'
+        param = {'tv': '1Y1', 'tvNum': "pw"}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+                )
     elif text.isdigit():
         if len(text) < 3:
             content = '正為您轉台，請靜候10秒'
