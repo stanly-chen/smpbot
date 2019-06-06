@@ -109,6 +109,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
+    elif "關燈" in text:
+        content = '已為您關閉電燈'
+        param = {'temp': '0', 'water': '1Y1', 'wm': '0'}
+        requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
     elif "電視" in text:
         content = '已發送電視遙控器訊號'
         param = {'temp': '0', 'tv': '1Y1', 'wm': '0'}
