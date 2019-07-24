@@ -57,7 +57,7 @@ def handle_message(event):
     elif "開機" in text:
         content = '正為您開機'
         param = {'tv': '1Y1', 'tvNum': "pw"}
-        requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
@@ -66,7 +66,7 @@ def handle_message(event):
         if len(text) < 3:
             content = '正為您轉台，請靜候10秒'
             param = {'tv': '1Y1', 'tvNum': text}
-            requests.get('https://dweet.io/dweet/for/stanlykuasled3', params=param)
+            requests.get('http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action', params=param)
             line_bot_api.reply_message(
                 event.reply_token,
                 TextSendMessage(text=content)
