@@ -141,18 +141,18 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
-    elif "兔子" in text:
-        content = '已將您的頻道切換至兔子的監視器'
+    elif "監視器" in text:
+        content = '已將您的頻道切換至監視器'
         param = {'mychannel': 'C'}
-        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!toRoom.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
             )
-    elif "全部" in text:
-        content = '已將您的頻道切換至所有監控'
+    elif "電視" in text:
+        content = '已將您的頻道切換至電視'
         param = {'mychannel': 'A'}
-        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action', params=param)
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!toTv.action', params=param)
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=content)
