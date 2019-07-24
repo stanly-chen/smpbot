@@ -62,6 +62,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
                 )
+    elif "Discovery" in text:
+        content = '正為您轉至Discovery'
+        param = {'tv': '1Y1', 'tvNum': "19"}
+        requests.get('http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+                )
     elif text.isdigit():
         if len(text) < 3:
             content = '正為您轉台，請靜候10秒'
