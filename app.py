@@ -165,6 +165,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=content)
             )
+    elif "電腦" in text:
+        content = '已將您按下電腦電源'
+        param = {'computer': 'Y'}
+        requests.get('https://dweet.io/dweet/for/stanlyHomeCtrl704', params=param)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+            )
 
 
 if __name__ == "__main__":
