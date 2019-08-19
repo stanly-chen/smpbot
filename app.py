@@ -69,7 +69,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif text.isdigit():
-        if len(text) < 3:
+        if len(text) < 4:
             content = '正為您轉台，請靜候10秒'
             param = {'tv': '1Y1', 'tvNum': text}
             requests.get(
