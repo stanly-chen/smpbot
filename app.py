@@ -52,8 +52,8 @@ def handle_message(event):
         content = str(event.source.user_id) + '_' + userName + '_' + userStatus
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
-    elif "開機" in text:
-        content = '正為您開機'
+    elif "電視盒" in text:
+        content = '正為您按下電視盒開關'
         param = {'tv': '1Y1', 'tvNum': "pw"}
         requests.get(
             'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
@@ -101,12 +101,6 @@ def handle_message(event):
                                    TextSendMessage(text=content))
     elif "開燈" in text:
         content = '已為您開啟電燈'
-        param = {'temp': '0', 'water': '1Y1', 'wm': '0'}
-        requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
-        line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text=content))
-    elif "關燈" in text:
-        content = '已為您關閉電燈'
         param = {'temp': '0', 'water': '1Y1', 'wm': '0'}
         requests.get('https://dweet.io/dweet/for/stanlykuasled', params=param)
         line_bot_api.reply_message(event.reply_token,
