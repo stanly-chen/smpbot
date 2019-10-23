@@ -61,7 +61,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif "開鎖" in text:
-        content = '正為您開鎖'
+        content = '正為您開鎖....'
         param = {'relay': "0"}
         requests.get(
             'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
