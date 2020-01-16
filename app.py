@@ -56,15 +56,7 @@ def handle_message(event):
         content = '正為您按下電視盒開關'
         param = {'tv': '1Y1', 'tvNum': "pw"}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
-            params=param)
-        line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text=content))
-    elif "開鎖" in text:
-        content = '正為您開鎖'
-        param = {'relay': "0"}
-        requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
+            'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -72,7 +64,7 @@ def handle_message(event):
         content = '正為您轉至Discovery'
         param = {'tv': '1Y1', 'tvNum': "19"}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
+            'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -125,7 +117,7 @@ def handle_message(event):
         content = '已將您的頻道切換至房間'
         param = {'mychannel': 'R'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!openTv.action',
+            'http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -133,7 +125,7 @@ def handle_message(event):
         content = '已將您的頻道切換至電視節目'
         param = {'mychannel': 'T'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!openTv.action',
+            'http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!openTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -149,12 +141,12 @@ def handle_message(event):
         content = '已將您的頻道切換至電視'
         param = {'mychannel': 'A'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!toTv.action',
+            'http://vanlenth6.ddns.net:8080/stanly/stanly/tvAction!toTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif "開電腦" in text:
-        content = '已將您按下電腦電源'
+        content = '已將您按下電腦電源..'
         param = {'computer': 'Y'}
         requests.get('https://dweet.io/dweet/for/stanlyHomeCtrl704',
                      params=param)
