@@ -53,7 +53,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif "電視盒" in text:
-        content = '正為您按下電視盒開關-'
+        content = '正為您按下電視盒開關.-'
         param = {'tv': '1Y1', 'tvNum': "pw"}
         requests.get(
             'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
