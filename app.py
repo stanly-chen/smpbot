@@ -153,7 +153,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif "關電腦" in text:
-        content = '已將您按下電腦電源'
+        content = '已將您按下電腦電源-'
         param = {'computer': 'R'}
         requests.get('https://dweet.io/dweet/for/stanlyHomeCtrl704',
                      params=param)
