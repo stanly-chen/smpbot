@@ -56,7 +56,7 @@ def handle_message(event):
         content = '正為您按下電視盒開關'
         param = {'tv': '1Y1', 'tvNum': "pw"}
         requests.get(
-            'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -64,7 +64,7 @@ def handle_message(event):
         content = '正為您轉至Discovery'
         param = {'tv': '1Y1', 'tvNum': "19"}
         requests.get(
-            'http://vanlenth6.ddns.net:8080/stanly/tvAction!setJs.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!setJs.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -146,7 +146,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
     elif "開電腦" in text:
-        content = '已將您按下電腦電源..'
+        content = '已將您按下電腦電源OK..'
         param = {'computer': 'Y'}
         requests.get('https://dweet.io/dweet/for/stanlyHomeCtrl704',
                      params=param)
