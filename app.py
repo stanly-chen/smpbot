@@ -78,7 +78,7 @@ def handle_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text=content))
         else:
-            content = '請輸入最高兩位的數字'
+            content = '請輸入最高兩位的數字2'
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text=content))
     elif text.lower() == 'open':
