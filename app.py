@@ -125,7 +125,7 @@ def handle_message(event):
         content = '已將您的頻道切換至房間'
         param = {'mychannel': 'R'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!openTv.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!openTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -133,7 +133,7 @@ def handle_message(event):
         content = '已將您的頻道切換至電視節目'
         param = {'mychannel': 'T'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!openTv.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!openTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -141,7 +141,7 @@ def handle_message(event):
         content = '已將您的頻道切換至監視器'
         param = {'mychannel': 'C'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!toRoom.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!toRoom.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
@@ -149,7 +149,7 @@ def handle_message(event):
         content = '已將您的頻道切換至電視'
         param = {'mychannel': 'A'}
         requests.get(
-            'http://vanlenth6.hopto.org:8080/stanly/stanly/tvAction!toTv.action',
+            'http://vanlenth6.hopto.org:8080/stanly/tvAction!toTv.action',
             params=param)
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text=content))
